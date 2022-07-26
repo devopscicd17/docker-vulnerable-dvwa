@@ -24,6 +24,4 @@ jobs:
       run: docker build . --file Dockerfile --tag dvwa-docker-app
       
     - name: Docker Push
-      run: docker image tag dvwa-docker-app manojsinghceh/dvwa-docker-app
-      - name: Docker Push Dockerhub
       run: docker image push manojsinghceh/dvwa-docker-app
