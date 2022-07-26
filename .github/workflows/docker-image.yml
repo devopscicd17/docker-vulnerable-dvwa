@@ -21,7 +21,9 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag dvwa-docker-app
       
     - name: Docker Push
-      run: docker push manojsinghceh/my-image-name:$(date +%s)
+      run: docker image tag dvwa-docker-app manojsinghceh/dvwa-docker-app
+      - name: Docker Push Dockerhub
+      run: docker image push manojsinghceh/dvwa-docker-app
